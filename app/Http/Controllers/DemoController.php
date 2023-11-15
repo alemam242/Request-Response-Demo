@@ -66,12 +66,15 @@ class DemoController extends Controller
         $value="alemam";
         $expTime=60;
         $path="/";
-        $domain=$_SERVER["HTTP_HOST"];
+        $domain=$_SERVER["SERVER_NAME"];
         $secure=true;
         $httpOnly=true;
 
         // Todo: Solve the problem that cookie does not exist
-        return response()->cookie($name, $value, $expTime, $path, $domain, $secure, $httpOnly);
+        /**
+         * * Problem Solved
+         */
+        return response("Cookie set successfully.")->cookie($name, $value, $expTime, $path, $domain, $secure, $httpOnly);
     }
 
     // Response Header
