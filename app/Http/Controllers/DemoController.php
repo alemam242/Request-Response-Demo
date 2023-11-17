@@ -79,9 +79,18 @@ class DemoController extends Controller
 
     // Response Header
     function Demo9(){
-        return response("Header set successfully")->header("key-1","value-1")
+        // First Way
+        /*return response("Header set successfully")->header("key-1","value-1")
         ->header("key-2","value-2")
-        ->header("key-3","value-3");
+        ->header("key-3","value-3");*/
+
+        // Second Way 
+        return response("Header set successfully")
+            ->withHeaders([
+                'header-1' => 'value-1',
+                'header-2' => 'Value-2',
+                'header-3' => 'Value-3'
+            ]);
     }
 
     // Response Blade View
